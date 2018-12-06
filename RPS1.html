@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Rock, Paper, Scissors</title>
+</head>
+<body>
+<div id="game">      
+<script type="text/javascript">
+    var wins=0;
+    var loses=0;
+    var ties=0; 
+document.onkeyup = function(keyPress) {
+    var userGuess = keyPress.key;
+    var win = document.getElementById("win");
+    var loss = document.getElementById("loss");
+    var tie = document.getElementById("tie");
+    var UGuess = document.getElementById("yourGuess")
+    var PCGuess = document.getElementById("compGuess");
+    alert("Your guess: " + userGuess);   
+    UGuess.innerHTML=userGuess;
+
+    var computerChoices = ["r", "p", "s"];
+    var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+    alert("My guess: " + computerGuess);
+    PCGuess.innerHTML=computerGuess;
+
+    if ((userGuess === "s" && computerGuess==="p")||(userGuess === "p" && computerGuess==="r")||(userGuess === "r" && computerGuess==="s")) {
+        alert("You win!!");
+        wins++;
+        win.innerHTML=wins;
+    } else if (userGuess === computerGuess) {
+        alert("Tie Sukka");
+        ties++;
+        tie.innerHTML=ties;
+    } else {
+        alert("I win!")
+        loses++;
+        loss.innerHTML=loses;
+    }
+};
+</script>
+<div>
+       <h1>Your guess: <span id="yourGuess"></span></h1>
+    </div>
+    <div>
+            <h1>My guess: <span id="compGuess"></span></h1>
+        </div>
+<div>
+    <h1>Your wins: <span id="win"></span></h1>
+</div>
+<div>
+        <h1>Ties: <span id="tie"></span></h1>
+    </div>
+    <div>
+        <h1>My wins: <span id="loss"></span></h1>
+        </div>
+</div>
+</body>
+</html>
